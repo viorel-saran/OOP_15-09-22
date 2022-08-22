@@ -20,10 +20,18 @@
 		<start-class>it.univpm.TicketMAsterEventsAppApplication</start-class>
 	</properties>
 	<dependencies>
+	
+		<dependency>
+				<groupId>com.googlecode.json-simple</groupId>
+				<artifactId>json-simple</artifactId>
+				<version>1.1.1</version>
+		</dependency>
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+		
 		<dependency>
 			<groupId>org.springframework.experimental</groupId>
 			<artifactId>spring-native</artifactId>
@@ -142,6 +150,7 @@
 					<artifactId>junit-platform-launcher</artifactId>
 					<scope>test</scope>
 				</dependency>
+				
 			</dependencies>
 			<build>
 				<plugins>
