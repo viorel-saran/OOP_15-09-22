@@ -1,6 +1,6 @@
 package it.univpm.TicketMasterEventsApp.service;
 
-<<<<<<< HEAD
+
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -17,30 +17,23 @@ import org.json.simple.parser.ParseException;
 
 import it.univpm.TicketMasterEventsApp.model.Events;
 import it.univpm.TicketMasterEventsApp.service.Downloadevent;
-=======
+
 import org.json.simple.JSONArray;
 
->>>>>>> branch 'main' of https://github.com/viorel-saran/OOP_15-09-22
+
 
 
 public class Downloadevent {
 	
 	private String apikey="&apikey=U5WWiFt5dP45LjbCYiS7LRp6Fx1P0VSA";
 	
-<<<<<<< HEAD
+
 	//un set e' una collezione di oggetti senza ordine unici
 	//non puo contenere un oggetto piu' di una volta e non si conosce la posizione del oggetto
 	//HashSet: collezione non ordinata
 	
 	Set<Events> events= new HashSet<Events>();
-=======
-	public JSONArray Eventieuropei() {
-		
-		
-		
-	}
 	
->>>>>>> branch 'main' of https://github.com/viorel-saran/OOP_15-09-22
 
 	/**
 	 * Metodo che richiede l'accesso al server di TicketMaster, scarica i dati relativi agli eventi 
