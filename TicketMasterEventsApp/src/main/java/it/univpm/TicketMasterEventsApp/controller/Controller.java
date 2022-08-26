@@ -1,10 +1,13 @@
 package it.univpm.TicketMasterEventsApp.controller;
 
 
+import it.univpm.TicketMasterEventsApp.model.Events;
 import it.univpm.TicketMasterEventsApp.service.Downloadevent;
 
-import org.json.simple.JSONArray;
+import java.util.Set;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -17,11 +20,20 @@ public class Controller {
 	 * che ritorna una lista di eventi in base agli stateCodes		 
 	 */
 	@GetMapping("/allEventsEU")	
-	public JSONArray printEvents() {
+	public void printEvents() {		
+		Downloadevent e = new Downloadevent();		
+		 e.initializeEvents();
 		
-		Downloadevent e = new Downloadevent();
-		
-		return e.EventsAllStates();		
+		for (Events s : e.eventsOBJs) {
+		    System.out.println(s);
+		}		
+	}
+	
+	
+	@GetMapping("/numEventsEU")	
+	public long printNumEvents() {		
+		Downloadevent e = new Downloadevent();		
+		return e.numEventsAllStates();		
 	}
 
 
