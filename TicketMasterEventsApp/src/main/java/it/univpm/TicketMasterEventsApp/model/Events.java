@@ -53,6 +53,7 @@ public class Events{
 		this.countryEvento = countryEvento;
 	}			
 	
+	
 	public String toString() {
 		return "Eventi: [countryCode= "+countryCode+",  name= "+nomeEvento+",  data= "+dataDelEvento+",  genere= "+genereEvento+",  paese= "+countryEvento+"]";
 	}

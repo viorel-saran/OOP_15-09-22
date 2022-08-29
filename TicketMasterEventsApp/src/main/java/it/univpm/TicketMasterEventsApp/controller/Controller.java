@@ -23,10 +23,11 @@ public class Controller {
 	public void printEvents() {		
 		Downloadevent e = new Downloadevent();		
 		 e.initializeEvents();
-		
+		int i=0;
 		for (Events s : e.eventsOBJs) {
-		    System.out.println(s);
-		}		
+			i++;		    
+		}	
+		System.out.println(i);
 	}
 	
 	

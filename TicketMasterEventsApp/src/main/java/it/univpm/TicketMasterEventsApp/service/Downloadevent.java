@@ -103,15 +103,15 @@ public class Downloadevent {
 	
 	
 	
-  @SuppressWarnings("unchecked")
-public JSONArray EventsAllStates() {
+@SuppressWarnings("unchecked")
+public JSONArray eventsAllStates() {
 		
 	  
 		//stringa inserita manualmente per dichiarare tutti gli stateCodes degli stati eu 
 		//fonte stati appartenenti eu:  https://abbreviations.yourdictionary.com/articles/list-of-europe-country-codes.html
 	    //stati appartenti continente eu e presenti nell api
 		String stateCodes[] = {"AD","AT","BE","BG","HR",  "CY","CZ","DK","EE","FO",  "FI","FR","DE","GI","UK", " GR","HU","IS","IE","UA",
-				               "IT","LV","LT","LU","MT",  "MC","ME","NL","NO","PL",  "PT","RO","RU","RS","SK",  "SI","ES","SE","CH"/*,"TR"*/}; 
+				               "IT","LV","LT","LU","MT",  "MC","ME","NL","NO","PL",  "PT","RO","RU","RS","SK",  "SI","ES","SE","CH","TR"}; 
 				
 		 
 		JSONArray all = new JSONArray();
@@ -119,14 +119,9 @@ public JSONArray EventsAllStates() {
 		
 		
 		
-		for(int i = 0; i<stateCodes.length; i++) {
-			
-			
-		
+		for(int i = 0; i<stateCodes.length; i++) {								
 		String url="https://app.ticketmaster.com/discovery/v2/events.json?size=50&locale=*&countryCode="+ stateCodes[i]+ apikey;
-		
-		
-		
+						
 		try {
 		 HttpURLConnection connessione= (HttpURLConnection) new URL(url).openConnection();
          connessione.setRequestMethod("GET");
@@ -179,9 +174,9 @@ public JSONArray EventsAllStates() {
 	
 	 // Metodo che compone la mia struttura dati 
 	 
-		public void initializeEvents() {
+		public Set<Events> initializeEvents() {
 			
-			JSONArray events= EventsAllStates();
+			JSONArray events= eventsAllStates();
 			
 			for(Object o: events) { // scansiona ogni oggetto del JSONArrayarray events
 				
@@ -218,6 +213,7 @@ public JSONArray EventsAllStates() {
 				eventsOBJs.add(e);
 				
 			}
+			return eventsOBJs;
 			
 		}
 	
