@@ -25,9 +25,9 @@ public class Controller {
 		 e.initializeEvents();
 		int i=0;
 		for (Events s : e.eventsOBJs) {
-			i++;		    
+			System.out.println(s);		    
 		}	
-		System.out.println(i);
+		
 	}
 	
 	
