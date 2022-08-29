@@ -1,12 +1,13 @@
 package it.univpm.TicketMasterEventsApp.service;
-import it.univpm.TicketMasterEventsApp.model.Events;
-import it.univpm.TicketMasterEventsApp.service.Downloadevent;
-import it.univpm.TicketMasterEventsApp.utils.*;
-import java.util.Set;
+import java.util.List;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.springframework.stereotype.Service;
+
+import it.univpm.TicketMasterEventsApp.model.Events;
+import it.univpm.TicketMasterEventsApp.utils.Filters;
+import it.univpm.TicketMasterEventsApp.utils.Stats;
 
 @Service
 public class EventServiceImpl implements EventService {
@@ -14,8 +15,8 @@ public class EventServiceImpl implements EventService {
 	public  JSONArray statsEUevents() {
 		
 		Downloadevent e = new Downloadevent();
-		e.eventsAllStates();//prendo eventi dalla api response
-		Set<Events> eventsOBJs=e.initializeEvents();//istanzio oggetti event
+		e.eventsAllStates();//prendo numero eventi dalla api response
+		List<Events> eventsOBJs=e.initializeEvents();//istanzio oggetti event
 		long numeroEventiTotale= e.numEventsAllStates();//prendo numero eventi totali in eu dalla api response 
 		
 		JSONArray statsALL = new JSONArray();		
@@ -40,7 +41,18 @@ public class EventServiceImpl implements EventService {
 	
 	
 	
-	public  JSONArray filterEventsPerCountry(String countryCode) {return null;};
+	public  JSONArray filterEventsPerCountry(String countryCode) {
+		
+		Downloadevent e = new Downloadevent();
+		List<Events> eventsOBJs=e.initializeEvents();
+		
+		JSONArray eventsByCountry= Filters.getEventsByCountry(eventsOBJs,countryCode);
+			
+		return eventsByCountry;
+		
+		};
+		
+		
 	public  JSONArray filterEventsPerGenre(String genere) {return null;};
 	
 	

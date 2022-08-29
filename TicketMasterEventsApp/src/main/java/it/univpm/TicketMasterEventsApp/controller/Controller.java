@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import it.univpm.TicketMasterEventsApp.service.Downloadevent;
@@ -30,10 +32,11 @@ public class Controller {
 	}
 	
 	
-	@GetMapping("/numEventsEU")	
-	public long printNumEvents() {		
-		Downloadevent e = new Downloadevent();		
-		return e.numEventsAllStates();		
+	@GetMapping("/FilterByCountry/{countryCode}")	
+	public ResponseEntity<Object> getEventsByCountry(@PathVariable(name="countryCode") String countryCode) {		
+				
+		return new ResponseEntity<>(serv.filterEventsPerCountry(countryCode),HttpStatus.OK);	
+		
 	}
 
 
