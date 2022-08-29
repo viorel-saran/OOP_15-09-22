@@ -18,7 +18,6 @@ import org.json.simple.parser.ParseException;
 import it.univpm.TicketMasterEventsApp.model.Events;
 import it.univpm.TicketMasterEventsApp.service.Downloadevent;
 
-import com.google.gson.*;
 
 
 public class Downloadevent {
@@ -120,7 +119,7 @@ public JSONArray eventsAllStates() {
 		
 		
 		for(int i = 0; i<stateCodes.length; i++) {								
-		String url="https://app.ticketmaster.com/discovery/v2/events.json?size=50&locale=*&countryCode="+ stateCodes[i]+ apikey;
+		String url="https://app.ticketmaster.com/discovery/v2/events.json?size=200&locale=*&countryCode="+ stateCodes[i]+ apikey;
 						
 		try {
 		 HttpURLConnection connessione= (HttpURLConnection) new URL(url).openConnection();
