@@ -4,7 +4,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Set;
+import java.util.List;
 
 import org.json.simple.JSONObject;
 
@@ -14,7 +14,7 @@ public class Stats {
 	
 	
 
-	public static JSONObject getEventiPerGenere(Set<Events> eventsOBJs) {
+	public static JSONObject getEventiPerGenere(List<Events> eventsOBJs) {
 		
 		int countmus=0;
 		int countsport=0;
@@ -46,8 +46,12 @@ public class Stats {
 	}
 	
 	
+<<<<<<< HEAD
 	@SuppressWarnings("unchecked")
 	public static JSONObject getMinMaxMedEventi(Set<Events> eventsOBJs) {
+=======
+	public static JSONObject getMinMaxMedEventi(List<Events> eventsOBJs) {
+>>>>>>> branch 'main' of https://github.com/viorel-saran/OOP_15-09-22
 		
 		
 		int countGen=0;

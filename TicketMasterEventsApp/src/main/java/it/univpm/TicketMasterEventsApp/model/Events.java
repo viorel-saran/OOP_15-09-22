@@ -1,6 +1,6 @@
 package it.univpm.TicketMasterEventsApp.model;
 
-import java.util.Set;
+import org.json.simple.JSONObject;
 
 public class Events{
 	
@@ -56,5 +56,15 @@ public class Events{
 	
 	public String toString() {
 		return "Eventi: [countryCode= "+countryCode+",  name= "+nomeEvento+",  data= "+dataDelEvento+",  genere= "+genereEvento+",  paese= "+countryEvento+"]";
+	}
+	
+	public JSONObject toJSONObject() {
+		JSONObject eventJSON= new JSONObject();
+		eventJSON.put("CountryCode", countryCode);
+		eventJSON.put("Nome", nomeEvento);
+		eventJSON.put("Data", dataDelEvento);
+		eventJSON.put("Genere", genereEvento);
+		eventJSON.put("Stato", countryEvento);
+		return eventJSON;
 	}
 }

@@ -6,9 +6,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.Vector;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -16,7 +15,6 @@ import org.json.simple.JSONValue;
 import org.json.simple.parser.ParseException;
 
 import it.univpm.TicketMasterEventsApp.model.Events;
-import it.univpm.TicketMasterEventsApp.service.Downloadevent;
 
 
 
@@ -29,7 +27,7 @@ public class Downloadevent {
 	//non puo contenere un oggetto piu' di una volta e non si conosce la posizione del oggetto
 	//HashSet: collezione non ordinata
 	
-	public Set<Events> eventsOBJs= new HashSet<Events>();
+	public List<Events> eventsOBJs= new ArrayList<Events>();
 	
 
 	/**
@@ -119,7 +117,7 @@ public JSONArray eventsAllStates() {
 		
 		
 		for(int i = 0; i<stateCodes.length; i++) {								
-		String url="https://app.ticketmaster.com/discovery/v2/events.json?size=200&locale=*&countryCode="+ stateCodes[i]+ apikey;
+		String url="https://app.ticketmaster.com/discovery/v2/events.json?size=1&locale=*&countryCode="+ stateCodes[i]+ apikey;
 						
 		try {
 		 HttpURLConnection connessione= (HttpURLConnection) new URL(url).openConnection();
@@ -173,7 +171,7 @@ public JSONArray eventsAllStates() {
 	
 	 // Metodo che compone la mia struttura dati 
 	 
-		public Set<Events> initializeEvents() {
+		public List<Events> initializeEvents() {
 			
 			JSONArray events= eventsAllStates();
 			
