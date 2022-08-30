@@ -46,12 +46,9 @@ public class Stats {
 	}
 	
 	
-<<<<<<< HEAD
-	@SuppressWarnings("unchecked")
-	public static JSONObject getMinMaxMedEventi(Set<Events> eventsOBJs) {
-=======
+
 	public static JSONObject getMinMaxMedEventi(List<Events> eventsOBJs) {
->>>>>>> branch 'main' of https://github.com/viorel-saran/OOP_15-09-22
+
 		
 		
 		int countGen=0;

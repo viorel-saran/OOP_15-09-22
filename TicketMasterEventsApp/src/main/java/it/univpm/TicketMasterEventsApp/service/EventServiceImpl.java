@@ -5,6 +5,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.springframework.stereotype.Service;
 
+import it.univpm.TicketMasterEventsApp.exceptions.*;
 import it.univpm.TicketMasterEventsApp.model.Events;
 import it.univpm.TicketMasterEventsApp.utils.Filters;
 import it.univpm.TicketMasterEventsApp.utils.Stats;
@@ -41,19 +42,27 @@ public class EventServiceImpl implements EventService {
 	
 	
 	
-	public  JSONArray filterEventsPerCountry(String countryCode) {
+	public  JSONArray filterEventsPerCountry(String paese) throws NoCountryFoundException, NoEventsFoundException {
 		
 		Downloadevent e = new Downloadevent();
 		List<Events> eventsOBJs=e.initializeEvents();
 		
-		JSONArray eventsByCountry= Filters.getEventsByCountry(eventsOBJs,countryCode);
+		JSONArray eventsByCountry= Filters.getEventsByCountry(eventsOBJs,paese);
 			
-		return eventsByCountry;
+		if(eventsByCountry.isEmpty()) {throw new NoEventsFoundException();}
+		return eventsByCountry;		
+		}
 		
-		};
 		
+	public  JSONArray filterEventsPerGenre(String genere) throws NoGenreFoundException, NoEventsFoundException {
+		Downloadevent e = new Downloadevent();
+		List<Events> eventsOBJs=e.initializeEvents();
 		
-	public  JSONArray filterEventsPerGenre(String genere) {return null;};
+		JSONArray eventsByGenre= Filters.getEventsByGenre(eventsOBJs,genere);
+			
+		if(eventsByGenre.isEmpty()) {throw new NoEventsFoundException();}
+		return eventsByGenre;
+		}
 	
 	
 }

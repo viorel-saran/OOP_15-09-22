@@ -37,7 +37,7 @@ public class Downloadevent {
 	 * events è un JSONArray che contiene tutte informazioni di tutti gli eventi che hanno luogo in quel stato
 	 */
 	
-	JSONArray allevents=new JSONArray();
+	
 	
 	
 	public long numEventsAllStates() {
@@ -53,7 +53,7 @@ public class Downloadevent {
 		
 		
 		
-		String url="https://app.ticketmaster.com/discovery/v2/events.json?size=200&locale=*&countryCode="+ stateCodes+ apikey;
+		String url="https://app.ticketmaster.com/discovery/v2/events.json?size=1&locale=*&countryCode="+ stateCodes+ apikey;
 		
 		try {
 		 HttpURLConnection connessione= (HttpURLConnection) new URL(url).openConnection();
@@ -80,17 +80,18 @@ public class Downloadevent {
                 } finally {
                  in.close();
         }
-            JSONObject totalobj = (JSONObject)JSONValue.parseWithException(data);                             
+            JSONObject totalobj = (JSONObject)JSONValue.parseWithException(data); 
+            
             JSONObject page = (JSONObject)(totalobj.get("page"));                                                        
             
             numeroEventi = (Long)page.get("totalElements");         
 		
 		
 	} catch(ParseException e){
-		e.printStackTrace();
+		//e.printStackTrace();
 	}
 		catch(Exception e) {
-	       e.printStackTrace();
+	      // e.printStackTrace();
 	}		
 		
 		return  numeroEventi;// jsonarray dove si trovano i tutti gli eventi in base agli countryCodes		
@@ -109,23 +110,19 @@ public JSONArray eventsAllStates() {
 	    //stati appartenti continente eu e presenti nell api
 		String stateCodes[] = {"AD","AT","BE","BG","HR",  "CY","CZ","DK","EE","FO",  "FI","FR","DE","GI","UK", " GR","HU","IS","IE","UA",
 				               "IT","LV","LT","LU","MT",  "MC","ME","NL","NO","PL",  "PT","RO","RU","RS","SK",  "SI","ES","SE","CH","TR"}; 
-				
-		 
+						 
 		JSONArray all = new JSONArray();
-		JSONObject totalobj = new JSONObject();
-		
-		
+		JSONObject totalobj = new JSONObject();				
 		
 		for(int i = 0; i<stateCodes.length; i++) {								
-		String url="https://app.ticketmaster.com/discovery/v2/events.json?size=1&locale=*&countryCode="+ stateCodes[i]+ apikey;
-						
+		String url="https://app.ticketmaster.com/discovery/v2/events.json?size=50&locale=*&countryCode="+ stateCodes[i]+ apikey;
+		JSONArray allevents=new JSONArray();				
 		try {
 		 HttpURLConnection connessione= (HttpURLConnection) new URL(url).openConnection();
          connessione.setRequestMethod("GET");
          connessione.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:25.0) Gecko/20100101 Firefox/25.0");
          connessione.setRequestProperty("Content-Type", "application/json");
-         
-        
+                
                InputStream in = connessione.getInputStream(); 
                String data = "";
                String line = "";
@@ -152,17 +149,20 @@ public JSONArray eventsAllStates() {
                              		
 		
 	} catch(ParseException e){
-		e.printStackTrace();
+		continue;
+		//e.printStackTrace();
 	}
 		catch(Exception e) {
-	       e.printStackTrace();
+			continue;
+	      // e.printStackTrace();
 	}		
 		
 		
 		all.addAll(allevents);
+		
 		}
 						
-		return  all;// jsonarray dove si trovano i tutti gli eventi in base agli countryCodes		
+		return  all;// jsonarray dove si trovano i tutti gli eventi in base ai countryCodes		
 }
 	
 	
@@ -209,6 +209,7 @@ public JSONArray eventsAllStates() {
 				e = new Events(countryCode,nomeEvento, genereEvento, dataDelEvento,countryEvento);			
 				eventsOBJs.add(e);
 				
+			
 			}
 			return eventsOBJs;
 			
