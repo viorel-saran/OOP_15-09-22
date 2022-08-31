@@ -9,7 +9,10 @@ import it.univpm.TicketMasterEventsApp.exceptions.NoCountryFoundException;
 import it.univpm.TicketMasterEventsApp.exceptions.NoGenreFoundException;
 import it.univpm.TicketMasterEventsApp.model.Events;
 
-
+/**Metodo che gestisce le chiamate alle relative rotte
+ * @author Luca Marziliano
+ * @author Viorel Saran
+ */
 public class Filters {
 	
 	public static JSONArray getEventsByCountry(List<Events> eventi,String paese) throws NoCountryFoundException {

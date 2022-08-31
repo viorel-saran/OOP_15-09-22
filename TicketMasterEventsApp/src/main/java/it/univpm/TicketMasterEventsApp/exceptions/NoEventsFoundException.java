@@ -1,4 +1,8 @@
 package it.univpm.TicketMasterEventsApp.exceptions;
+/**Metodo che gestisce le chiamate alle relative rotte
+ * @author Luca Marziliano
+ * @author Viorel Saran
+ */
 
 public class NoEventsFoundException extends Exception {
 

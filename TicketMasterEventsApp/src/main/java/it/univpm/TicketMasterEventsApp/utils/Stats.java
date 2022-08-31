@@ -10,6 +10,11 @@ import org.json.simple.JSONObject;
 
 import it.univpm.TicketMasterEventsApp.model.Events;
 
+
+/**Metodo che gestisce le chiamate alle relative rotte
+ * @author Luca Marziliano
+ * @author Viorel Saran
+ */
 public class Stats {
 	
 	

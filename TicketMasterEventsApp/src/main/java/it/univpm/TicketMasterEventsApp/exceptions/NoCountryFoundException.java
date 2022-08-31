@@ -1,5 +1,10 @@
 package it.univpm.TicketMasterEventsApp.exceptions;
 
+/**Metodo che gestisce le chiamate alle relative rotte
+ * @author Luca Marziliano
+ * @author Viorel Saran
+ */
+
 public class NoCountryFoundException extends Exception {
 	
 	/**
@@ -11,7 +16,7 @@ public class NoCountryFoundException extends Exception {
 		super("Errore: paese non rilevato...");		
 	}
 	
-	public String NoCountryFoundError() {
+	public String noCountryFoundError() {
 		return("Errore:\n E' necessario inserire un paese europeo valido in lingua italiana...");
 	}
 	
