@@ -12,5 +12,6 @@ public interface EventService {
 	public abstract JSONArray statsEUevents();
 	public abstract JSONArray filterEventsPerCountry(String countryCode) throws NoCountryFoundException, NoEventsFoundException;
 	public abstract JSONArray filterEventsPerGenre(String genere) throws NoGenreFoundException, NoEventsFoundException;
+	public abstract JSONArray filterEventsPerGenreAndCountry(JSONArray filtriArray) throws NoGenreFoundException, NoEventsFoundException,NoCountryFoundException,EmptyFieldException;
 
 }

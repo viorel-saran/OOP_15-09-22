@@ -56,6 +56,8 @@ public class EventServiceImpl implements EventService {
 	 * @see Downloadevent#getEventsOBJ()
 	 * @see Downloadevent#getInstance()		 
 	 * @see Filters#getEventsByCountry(List<Events>,String) 
+	 * @throws NoCountryFoundException
+	 * @throws NoEventsFoundException
 	 * @return eventsByCountry
 	 */
 	public  JSONArray filterEventsPerCountry(String paese) throws NoCountryFoundException, NoEventsFoundException {
@@ -75,6 +77,8 @@ public class EventServiceImpl implements EventService {
 	 * @see Downloadevent#getEventsOBJ()
 	 * @see Downloadevent#getInstance()		 
 	 * @see Filters#getEventsByGenre(List<Events>,String) 
+	 * @throws NoGenreFoundException
+	 * @throws NoEventsFoundException
 	 * @return eventsByGenre
 	 */	
 	public  JSONArray filterEventsPerGenre(String genere) throws NoGenreFoundException, NoEventsFoundException {
@@ -85,5 +89,29 @@ public class EventServiceImpl implements EventService {
 			
 		if(eventsByGenre.isEmpty()) {throw new NoEventsFoundException();}
 		return eventsByGenre;
-		}		
+		}
+	
+	/**Metodo che ritorna un jsonarray di jsonobject contenente gli eventi relativi ai generi e ai paesi relativi al filtro 
+	 * @param genere
+	 * @see Downloadevent#getEventsOBJ()
+	 * @see Downloadevent#getInstance()		 
+	 * @see Filters#getEventsByGenreAndCountry(List<Events>,JSONArray)
+	 * @throws NoGenreFoundException
+	 * @throws NoEventsFoundException 
+	 * @throws NoCountryFoundException 
+	 * @throws EmptyFieldException 
+	 * @return eventsByGenreAndCountry
+	 */
+	
+	public  JSONArray filterEventsPerGenreAndCountry(JSONArray filtriArray)throws NoGenreFoundException, NoEventsFoundException,NoCountryFoundException,EmptyFieldException{
+		Downloadevent e = Downloadevent.getInstance();
+		List<Events> eventsOBJs=e.getEventsOBJ();
+		
+		JSONArray eventsByGenreAndCountry=Filters.getEventsByGenreAndCountry(eventsOBJs, filtriArray);
+		
+		if(eventsByGenreAndCountry.isEmpty()) {throw new NoEventsFoundException();}
+		return eventsByGenreAndCountry;
+		}	
+	
+	
 }

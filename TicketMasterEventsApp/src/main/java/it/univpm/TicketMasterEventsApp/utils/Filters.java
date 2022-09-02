@@ -5,6 +5,7 @@ import java.util.List;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import it.univpm.TicketMasterEventsApp.exceptions.EmptyFieldException;
 import it.univpm.TicketMasterEventsApp.exceptions.NoCountryFoundException;
 import it.univpm.TicketMasterEventsApp.exceptions.NoGenreFoundException;
 import it.univpm.TicketMasterEventsApp.model.Events;
@@ -69,6 +70,46 @@ public class Filters {
 		}				
 		return  genreFiltered;		
 	}
+    
+    /**
+	 * Metodo che scorre gli eventi presi come parametro e li confronta con i filtri presi da un JSONArray dal parametro "filtriArray" e dopo averli filtrati li inserisce in un JSONArray
+	 * che poi viene restituito
+	 * @param eventi
+	 * @param filtryArray
+	 * @throws NoGenreFoundException
+	 * @throws NoCountryFoundException
+	 * @throws EmptyFieldException
+	 * @see {@link Filters#assocciaGenere(String)}
+	 * @see {@link Filters#assocciaPaeseACountryCode(String)}
+	 * @see Events#getGenereEvento()
+	 * @see Events#getCountryCode()
+	 * @see Events#toJSONObject()
+	 * @return genreAndCountryFiltered
+	 */
+    public static JSONArray getEventsByGenreAndCountry(List<Events> eventi,JSONArray filtriArray)throws NoGenreFoundException,NoCountryFoundException,EmptyFieldException{
+    	JSONArray genreAndCountryFiltered= new JSONArray();
+    	for(Object obj: filtriArray) {
+    		JSONObject evento= (JSONObject) obj;
+    		if(!evento.containsKey("paese")) throw new EmptyFieldException("paese");
+    		String paese=(String) evento.get("paese");    		  		
+    		if((paese).isEmpty()) throw new NoCountryFoundException();
+    		if(!evento.containsKey("genere")) throw new EmptyFieldException("genere");
+    		String genere=(String) evento.get("genere");
+    		if((genere).isEmpty()) throw new NoGenreFoundException();
+    		String genereSimple= Filters.assocciaGenere(genere);
+    		String country = Filters.assocciaPaeseACountryCode(paese);
+    		for (Events e: eventi) {
+    			if (e.getGenereEvento().equalsIgnoreCase(genereSimple)&&e.getCountryCode().equalsIgnoreCase(country)) {
+    				
+    				JSONObject currentEvent= e.toJSONObject();
+    				genreAndCountryFiltered.add(currentEvent);								
+    			}
+    			
+    		}
+    		
+    	}
+    	return genreAndCountryFiltered;
+    }
     
     /**
 	 * Metodo che assoccia il paramentro String 'paese' al countryCode relativo	 
