@@ -9,12 +9,24 @@ import it.univpm.TicketMasterEventsApp.exceptions.NoCountryFoundException;
 import it.univpm.TicketMasterEventsApp.exceptions.NoGenreFoundException;
 import it.univpm.TicketMasterEventsApp.model.Events;
 
-/**Metodo che gestisce le chiamate alle relative rotte
+/**classe che gestisce i filtri per genere e per paese
  * @author Luca Marziliano
  * @author Viorel Saran
  */
 public class Filters {
 	
+	
+	
+	/**
+	 * Metodo che scorre gli eventi presi come parametro e li inserisce in un jsonarray in base alla stringa 'paese' passata come parametro
+	 * @param eventi
+	 * @param paese
+	 * @throws NoCountryFoundException
+	 * @see {@link Filters#assocciaPaeseACountryCode(String)}
+	 * @see Events#getCountryCode()
+	 * @see Events#toJSONObject()
+	 * @return countryFiltered
+	 */
 	public static JSONArray getEventsByCountry(List<Events> eventi,String paese) throws NoCountryFoundException {
 		
 		JSONArray countryFiltered= new JSONArray();
@@ -33,7 +45,16 @@ public class Filters {
 		
 	}
 
-	
+	/**
+	 * Metodo che scorre gli eventi presi come parametro e li inserisce in un jsonarray in base alla stringa 'genere' passata come parametro
+	 * @param eventi
+	 * @param genere
+	 * @throws NoGenreFoundException
+	 * @see {@link Filters#assocciaGenere(String)}
+	 * @see Events#getGenereEvento()
+	 * @see Events#toJSONObject()
+	 * @return genreFiltered
+	 */
     public static JSONArray getEventsByGenre(List<Events> eventi,String genere) throws NoGenreFoundException {
 		
 		JSONArray genreFiltered= new JSONArray();
@@ -48,7 +69,13 @@ public class Filters {
 		}				
 		return  genreFiltered;		
 	}
-
+    
+    /**
+	 * Metodo che assoccia il paramentro String 'paese' al countryCode relativo	 
+	 * @param paese
+	 * @throws NoCountryFoundException	 
+	 * @return countryCode
+	 */
     public static String assocciaPaeseACountryCode(String paese) throws NoCountryFoundException {
     	String countryCode = "";
     	String country = paese.toLowerCase();
@@ -99,6 +126,12 @@ public class Filters {
     	return countryCode;
     }
     
+    /**
+	 * Metodo che assoccia il paramentro String 'genere' al genere relativo	 
+	 * @param genere
+	 * @throws NoGenreFoundException	 
+	 * @return genereSimple
+	 */
     public static String assocciaGenere(String genere) throws NoGenreFoundException{
     	String genereSimple = "";
     	String genereTemp = genere.toLowerCase();

@@ -13,15 +13,19 @@ import org.junit.jupiter.api.Test;
 import it.univpm.TicketMasterEventsApp.model.Events;
 import it.univpm.TicketMasterEventsApp.service.Downloadevent;
 
+/**
+ * @author Viorel Saran
+ * @author Luca Marziliano
+ */
 public class DownloadEventTest {
 	
 	List<Events> eventi = null;	
 	
 	@BeforeEach
 	void setUp() throws Exception {
-		Downloadevent e = new Downloadevent();
+		Downloadevent e = Downloadevent.getInstance();
 		eventi = new ArrayList<Events>();				
-		eventi = e.initializeEvents();
+		eventi = e.getEventsOBJ();
 	}
 
 	@AfterEach

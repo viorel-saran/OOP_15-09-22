@@ -13,11 +13,15 @@ import it.univpm.TicketMasterEventsApp.exceptions.NoEventsFoundException;
 import it.univpm.TicketMasterEventsApp.exceptions.NoGenreFoundException;
 import it.univpm.TicketMasterEventsApp.service.EventServiceImpl;
 
+/**
+ * @author Viorel Saran
+ * @author Luca Marziliano
+ */
+
 @SpringBootTest
+
 public class EventServiceImplTest {
-	
-	
-			    
+					    
 		private EventServiceImpl event;
 		
 		String genere;
@@ -52,5 +56,4 @@ public class EventServiceImplTest {
 			genere = "musicca";
 			assertThrows(NoGenreFoundException.class, ()-> event.filterEventsPerGenre(genere));
 		}
-	
 }

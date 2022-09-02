@@ -20,7 +20,8 @@ import it.univpm.TicketMasterEventsApp.utils.Stats;
 public class EventServiceImpl implements EventService {
 	
 	/**Metodo che ritorna un jsonarray di jsonobject contenente le statistiche degli eventi 	
-	 * @see Downloadevent#initializeEvents()
+	 * @see Downloadevent#getEventsOBJ()
+	 * @see Downloadevent#getInstance()
 	 * @see Events#getNumeroEventiIstanziati()
 	 * @see Stats#getEventiPerGenere(List<Events>)
 	 * @see Stats#getMinMaxMedEventi(List<Events>)	 
@@ -28,8 +29,8 @@ public class EventServiceImpl implements EventService {
 	 */
 	public  JSONArray statsEUevents() {
 		
-		Downloadevent e = new Downloadevent();		
-		List<Events> eventsOBJs=e.initializeEvents();//istanzio oggetti event
+		Downloadevent e = Downloadevent.getInstance();		
+		List<Events> eventsOBJs=e.getEventsOBJ();
 		int numeroEventiTotale = eventsOBJs.size();//prendo numero eventi totali in eu dalla api response 
 		
 		JSONArray statsALL = new JSONArray();		
@@ -52,14 +53,15 @@ public class EventServiceImpl implements EventService {
 		
 	/**Metodo che ritorna un jsonarray di jsonobject contenente gli eventi relativi al paese 
 	 * @param paese
-	 * @see Downloadevent#initializeEvents()		 
+	 * @see Downloadevent#getEventsOBJ()
+	 * @see Downloadevent#getInstance()		 
 	 * @see Filters#getEventsByCountry(List<Events>,String) 
 	 * @return eventsByCountry
 	 */
 	public  JSONArray filterEventsPerCountry(String paese) throws NoCountryFoundException, NoEventsFoundException {
 		
-		Downloadevent e = new Downloadevent();
-		List<Events> eventsOBJs=e.initializeEvents();
+		Downloadevent e = Downloadevent.getInstance();
+		List<Events> eventsOBJs=e.getEventsOBJ();
 		
 		JSONArray eventsByCountry= Filters.getEventsByCountry(eventsOBJs,paese);
 			
@@ -67,16 +69,17 @@ public class EventServiceImpl implements EventService {
 		return eventsByCountry;		
 		}
 		
+	
 	/**Metodo che ritorna un jsonarray di jsonobject contenente gli eventi relativi al genere 
 	 * @param genere
-	 * @see Downloadevent#initializeEvents()		 
+	 * @see Downloadevent#getEventsOBJ()
+	 * @see Downloadevent#getInstance()		 
 	 * @see Filters#getEventsByGenre(List<Events>,String) 
 	 * @return eventsByGenre
-	 */
-	
+	 */	
 	public  JSONArray filterEventsPerGenre(String genere) throws NoGenreFoundException, NoEventsFoundException {
-		Downloadevent e = new Downloadevent();
-		List<Events> eventsOBJs=e.initializeEvents();
+		Downloadevent e = Downloadevent.getInstance();
+		List<Events> eventsOBJs=e.getEventsOBJ();
 		
 		JSONArray eventsByGenre= Filters.getEventsByGenre(eventsOBJs,genere);
 			

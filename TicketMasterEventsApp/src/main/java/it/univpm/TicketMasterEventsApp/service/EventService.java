@@ -3,7 +3,7 @@ package it.univpm.TicketMasterEventsApp.service;
 import org.json.simple.JSONArray;
 import it.univpm.TicketMasterEventsApp.exceptions.*;
 
-/**Interfaccia che contiene i metodo chiamati dal Controller
+/**Interfaccia che contiene i metodi chiamati dal Controller
  * @author Luca Marziliano
  * @author Viorel Saran
  */

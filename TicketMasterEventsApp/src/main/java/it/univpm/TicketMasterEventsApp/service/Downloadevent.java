@@ -22,6 +22,37 @@ import it.univpm.TicketMasterEventsApp.model.Events;
  */
 public class Downloadevent {
 	
+	// Unica istanza della classe
+    private static Downloadevent instance = null;
+    
+    /**
+   	 * Costruttore scarica e inizializza gli eventi
+   	 * @see Downloadevent#initializeEvents()
+   	 */	
+    // Costruttore invisibile   
+    private Downloadevent() {
+    	initializeEvents();
+    }
+    
+    /**
+	 * Metodo che restituisce una lista di eventi
+	 * @return eventsOBJs
+	 */	
+    public List<Events> getEventsOBJ() {
+    	return eventsOBJs;
+    }
+
+    /**
+	 * Metodo che crea l'oggetto solo se non esiste
+	 * @return instance
+	 */	
+    public static Downloadevent getInstance() {       
+        if (instance == null) {
+            instance = new Downloadevent();
+        }
+        return instance;
+    }
+	
 	/**
 	 * Chiave di autenticazione dell'API
 	 */
