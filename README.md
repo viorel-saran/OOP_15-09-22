@@ -57,9 +57,9 @@ Le rotte disponibili sono le seguenti:
 
 N° | Tipo | Rotta | Descrizione
 ----- | ------------ | -------------------- | ----------------------
-[1](#1) | ` GET ` | `/StatsEvents` | *restituisce un JSONArray composto da JSONObject al cui interno viene specificato: 1. numero totale di eventi scaricati; 2.  numero di eventi raggruppati per genere; 3. numero minimo/massimo/medio di eventi mensili. *
-[2](#2) | ` GET ` | `/FilterByCountry/{paese}` | *restituisce un JSONArray con all'interno gli eventi filtrati per paese e convertiti in JSONObject. In particolare ritorna gli attributi degli oggetti istanziati che sono: 1. nome dell'evento; 2. genere; 3. data dell'evento; 4. paese dell'evento; 5. countryCode. *
-[3](#3) | ` GET ` | `FilterByGenre/{genere}` | *restituisce un JSONArray con all'interno gli eventi filtrati per genere e convertiti in JSONObject. *
+[1](#1) | ` GET ` | `/StatsEvents` | *restituisce un JSONArray composto da JSONObject al cui interno viene specificato: 1. numero totale di eventi scaricati; 2.  numero di eventi raggruppati per genere; 3. numero minimo/massimo/medio di eventi mensili.*
+[2](#2) | ` GET ` | `/FilterByCountry/{paese}` | *restituisce un JSONArray con all'interno gli eventi filtrati per paese e convertiti in JSONObject. In particolare ritorna gli attributi degli oggetti istanziati che sono: 1. nome dell'evento; 2. genere; 3. data dell'evento; 4. paese dell'evento; 5. countryCode.*
+[3](#3) | ` GET ` | `FilterByGenre/{genere}` | *restituisce un JSONArray con all'interno gli eventi filtrati per genere e convertiti in JSONObject.*
 [4](#4) | ` POST ` | `/FilterByGenreAndCountry` | *restituisce un JSONArray con all'interno gli eventi filtrati per genere e paese e poi convertiti in JSONObject, ma filtrate attraverso dei parametri specificati dall'utente nel body della richiesta.*
 
 ### 1. GET /StatsEvents
