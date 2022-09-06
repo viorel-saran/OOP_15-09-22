@@ -1,0 +1,6 @@
+it.univpm.TicketMasterEventsApp
+it.univpm.TicketMasterEventsApp.controller
+it.univpm.TicketMasterEventsApp.exceptions
+it.univpm.TicketMasterEventsApp.model
+it.univpm.TicketMasterEventsApp.service
+it.univpm.TicketMasterEventsApp.utils
