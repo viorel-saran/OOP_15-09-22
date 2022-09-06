@@ -66,7 +66,7 @@ N° | Tipo | Rotta | Descrizione
 Questa rotta restituisce statistiche per numero totale di eventi scaricati, numero di eventi raggruppati per genere e numero minimo/massimo/medio di eventi mensili.
 
 #### Esempio risultato chiamata su postman
-![Rotta StatsEvents (1)]( )
+![Rotta StatsEvents (1)](https://github.com/viorel-saran/OOP_15-09-22/blob/main/TicketMasterEventsApp/READMEImages/stats.PNG)
 
 
 ### 2. GET /FilterByCountry/{paese}
@@ -88,7 +88,7 @@ E' necessario inserire un paese europeo valido in lingua italiana...
 ```
 
 
-#### Risultato chiamata su Postman
+#### Esempio risultato chiamata su Postman
 ![response rotta FilterByCountry/{paese}](https://github.com/viorel-saran/OOP_15-09-22/blob/main/TicketMasterEventsApp/READMEImages/getEbyC.PNG)
 
 
@@ -117,8 +117,8 @@ arte e teatro,
 altro
 ```                                                                       
 
-#### Risultato chiamata su postman
-![Rotta FilterByGenre/{genere}]()
+#### Esempio risultato chiamata su postman
+![Rotta FilterByGenre/{genere}](https://github.com/viorel-saran/OOP_15-09-22/blob/main/TicketMasterEventsApp/READMEImages/getEbyG.PNG)
 
 ### 4. POST /FilterByGenreAndCountry
 Questa è una chiamata di tipo **POST**, che restituisce gli eventi filtrati per genere e paese, passando come **parametri il genere e il paese** nel body.
@@ -139,8 +139,8 @@ Questa è una chiamata di tipo **POST**, che restituisce gli eventi filtrati per
 }
 ```
 
-#### Risultato chiamata su postman
-![Rotta FilterByGenreAndCountry]()
+#### Esempio risultato chiamata su postman
+![Rotta FilterByGenreAndCountry](https://github.com/viorel-saran/OOP_15-09-22/blob/main/TicketMasterEventsApp/READMEImages/postresponse.PNG)
 
 #### Eccezioni che può generare la chiamata
 
