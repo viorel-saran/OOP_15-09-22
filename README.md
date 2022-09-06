@@ -2,51 +2,14 @@
 
 ## Indice
 1. [Introduzione](#Introduzione)
-2. [UML](#UML)
-3. [Rotte](#Rotte)
-4. [Test](#Test)
-5. [Autori](#Autori)
+2. [Rotte](#Rotte)
+3. [Test](#Test)
+4. [Autori](#Autori)
 
 ## Introduzione
 L'applicazione TicketMasterEventsApp permette all'utente di filtrare e vedere statistiche su eventi situati in europa.  
 Nell'uso dell'applicazione si ricorre all'utilizzo di rotte che consentono la visualizzazione di statistiche e la filtrazione degli eventi scaricati dall'api di Ticketmaster.
 Alla chiamata di qualsiasi rotta vengono scaricati i primi 200 eventi per ogni stato europeo presente nell'api sui quali vengono calcolate le statistiche e applicati i filtri per genere, paese o entrambi.
-
-## UML
-#### Diagramma dei casi d'uso
-![UML Diagramma dei casi d'uso]()
-
-#### Diagramma delle classi
-![UML Diagramma delle classi TicketMaster]()
-
-###### Package model
-![Diagramma delle classi package model]()
-
-###### Package service
-![Diagramma delle classi package service]()
-
-###### Package utils
-![Diagramma delle classi package utils stats filter]()
-
-###### Package controller
-![Diagramma delle classi package controller]()
-
-###### Package exception
-![Diagramma delle classi package exception]()
-
-
-#### Diagramma delle sequenze
-###### /StatsEvents
-![Diagramma delle sequenze Promoter]()
-
-###### /FilterByCountry/{paese}
-![Diagramma delle sequenze statsReg]()
-
-###### /FilterByGenre/{genere}
-![Diagramma delle sequenze statsPromoter]()
-
-###### /FilterByGenreAndCountry
-![Diagramma delle sequenze statsPromoter]()
 
 ## Rotte
 L'utente può effettuare le richieste tramite Postman al seguente indirizzo
@@ -211,16 +174,16 @@ Errore:
 
 >Nel programma vengono effettuati i seguenti test:
                              
--**Test 1**
+**Test 1**
 Verifica che l'eccezione NoGenreFoundException sia lanciata correttamente
 
--**Test 2**
+**Test 2**
 Verifica che l'eccezione NoCountryFoundException sia lanciata correttamente
 
--**Test 3**
+**Test 3**
 Verifica che l'eccezione NoEventsFoundException sia lanciata correttamente
 
--**Test 4**
+**Test 4**
 Verifica se il download dei dati ed istanziamento di questi non da esito nullo
 
 
