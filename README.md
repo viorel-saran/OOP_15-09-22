@@ -89,7 +89,7 @@ E' necessario inserire un paese europeo valido in lingua italiana...
 
 
 #### Risultato chiamata su Postman
-![response rotta FilterByCountry/{paese}]()
+![response rotta FilterByCountry/{paese}](https://github.com/viorel-saran/OOP_15-09-22/blob/main/TicketMasterEventsApp/READMEImages/getEbyC.PNG)
 
 
 ### 3. GET /FilterByGenre/{genere}
