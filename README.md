@@ -81,26 +81,11 @@ Errore:
 Nessuno evento trovato per parametro di ricerca...
 ```
 
-- Nel caso in cui l'utente dovesse inserire un paese errato o non presente nella [lista](#lista) degli stati europei permessi dall'api, viene lanciata l'eccezione ***NoCountryFoundException*** che stampa il seguente messaggio:
+- Nel caso in cui l'utente dovesse inserire un paese errato o non presente nella lista degli stati europei permessi dall'api, viene lanciata l'eccezione ***NoCountryFoundException*** che stampa il seguente messaggio:
 ```
 Errore:
 E' necessario inserire un paese europeo valido in lingua italiana...
 ```
-#### Lista degli stati europei permessi dall'api
-
-    -italia                    -repubblica ceca         -grecia            -olanda                                                      
-    	-germania                  -bulgaria                -ungheria          -norvegia
-    	-francia                   -croazia                 -islanda           -polonia
-    	-turchia                   -cipro                   -ucraina           -romania
-    	-irlanda                   -finlandia               -lussemburgo       -russia
-    	-svizzera                  -danimarca               -lettonia          -serbia
-    	-svezia                    -estonia                 -lituania          -slovacchia
-    	-austria                   -isole faroe             -malta             -slovenia	
-    	-andorra                   -gibilterra              -monaco            -spagna
-    	-belgio                    -regno unito             -montenegro        -portogallo
-       -paesi bassi
-
-
 
 
 #### Risultato chiamata su Postman
