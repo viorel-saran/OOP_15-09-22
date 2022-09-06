@@ -37,7 +37,7 @@ Restituisce gli eventi per il paese inserito nella rotta.
 
 #### Eccezioni che può generare la chiamata
 
--Nel caso in cui l'utente dovesse inserire un paese tale per cui non ci sono eventi, viene lanciata l'eccezione ***NoEventsFoundException*** che stampa il seguente messaggio:
+- Nel caso in cui l'utente dovesse inserire un paese tale per cui non ci sono eventi, viene lanciata l'eccezione ***NoEventsFoundException*** che stampa il seguente messaggio:
 
 ```
 Errore:
@@ -50,6 +50,25 @@ Errore:
 E' necessario inserire un paese europeo valido in lingua italiana...
 ```
 
+- Lista paesi validi per il parametro della rotta
+```
+-italia                    -repubblica ceca         -grecia            -olanda                                                      
+-germania                  -bulgaria                -ungheria          -norvegia
+-francia                   -croazia                 -islanda           -polonia
+-turchia                   -cipro                   -ucraina           -romania
+-irlanda                   -finlandia               -lussemburgo       -russia
+-svizzera                  -danimarca               -lettonia          -serbia
+-svezia                    -estonia                 -lituania          -slovacchia
+-austria                   -isole faroe             -malta             -slovenia	
+-andorra                   -gibilterra              -monaco            -spagna
+-belgio                    -regno unito             -montenegro        -portogallo
+-paesi bassi
+ ```   	
+    	
+    	
+    	
+    	
+    	
 
 #### Esempio risultato chiamata su Postman
 ![response rotta FilterByCountry/{paese}](https://github.com/viorel-saran/OOP_15-09-22/blob/main/TicketMasterEventsApp/READMEImages/getEbyC.PNG)
@@ -60,7 +79,7 @@ Restituisce gli eventi per il genere inserito nella rotta.
 
 #### Eccezioni che può generare la chiamata
 
--Nel caso in cui l'utente dovesse inserire un genere tale per cui non ci sono eventi, viene lanciata l'eccezione ***NoEventsFoundException*** che stampa il seguente messaggio:
+- Nel caso in cui l'utente dovesse inserire un genere tale per cui non ci sono eventi, viene lanciata l'eccezione ***NoEventsFoundException*** che stampa il seguente messaggio:
 ```
 Errore:
 Nessuno evento trovato per parametro di ricerca...
@@ -107,7 +126,7 @@ Questa è una chiamata di tipo **POST**, che restituisce gli eventi filtrati per
 
 #### Eccezioni che può generare la chiamata
 
--Nel caso in cui l'utente dovesse inserire filtri tale per cui non ci sono eventi, viene lanciata l'eccezione ***NoEventsFoundException*** che stampa il seguente messaggio:
+- Nel caso in cui l'utente dovesse inserire filtri tale per cui non ci sono eventi, viene lanciata l'eccezione ***NoEventsFoundException*** che stampa il seguente messaggio:
 ```
 Errore:
 Nessuno evento trovato per parametro di ricerca...
@@ -175,16 +194,16 @@ Errore:
 >Nel programma vengono effettuati i seguenti test:
                              
 **Test 1**
-Verifica che l'eccezione NoGenreFoundException sia lanciata correttamente
+- Verifica che l'eccezione NoGenreFoundException sia lanciata correttamente
 
 **Test 2**
-Verifica che l'eccezione NoCountryFoundException sia lanciata correttamente
+- Verifica che l'eccezione NoCountryFoundException sia lanciata correttamente
 
 **Test 3**
-Verifica che l'eccezione NoEventsFoundException sia lanciata correttamente
+- Verifica che l'eccezione NoEventsFoundException sia lanciata correttamente
 
 **Test 4**
-Verifica se il download dei dati ed istanziamento di questi non da esito nullo
+- Verifica se il download dei dati ed istanziamento di questi non da esito nullo
 
 
 ## Autori
