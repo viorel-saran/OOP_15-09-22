@@ -81,11 +81,12 @@ Errore:
 Nessuno evento trovato per parametro di ricerca...
 ```
 
-- Nel caso in cui l'utente dovesse inserire un paese errato o non presente nella lista degli stati europei permessi dall'api, viene lanciata l'eccezione ***NoCountryFoundException*** che stampa il seguente messaggio:
+- Nel caso in cui l'utente dovesse inserire un paese errato o non presente nella [lista](#lista) degli stati europei permessi dall'api, viene lanciata l'eccezione ***NoCountryFoundException*** che stampa il seguente messaggio:
 ```
 Errore:
 E' necessario inserire un paese europeo valido in lingua italiana...
 ```
+### lista degli stati europei permessi dall'api
 
 #### Risultato chiamata su Postman
 ![response rotta FilterByCountry/{paese}]()
