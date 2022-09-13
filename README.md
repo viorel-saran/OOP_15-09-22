@@ -2,51 +2,14 @@
 
 ## Indice
 1. [Introduzione](#Introduzione)
-2. [UML](#UML)
-3. [Rotte](#Rotte)
-4. [Test](#Test)
-5. [Autori](#Autori)
+2. [Rotte](#Rotte)
+3. [Test](#Test)
+4. [Autori](#Autori)
 
 ## Introduzione
 L'applicazione TicketMasterEventsApp permette all'utente di filtrare e vedere statistiche su eventi situati in europa.  
 Nell'uso dell'applicazione si ricorre all'utilizzo di rotte che consentono la visualizzazione di statistiche e la filtrazione degli eventi scaricati dall'api di Ticketmaster.
 Alla chiamata di qualsiasi rotta vengono scaricati i primi 200 eventi per ogni stato europeo presente nell'api sui quali vengono calcolate le statistiche e applicati i filtri per genere, paese o entrambi.
-
-## UML
-#### Diagramma dei casi d'uso
-![UML Diagramma dei casi d'uso]()
-
-#### Diagramma delle classi
-![UML Diagramma delle classi TicketMaster]()
-
-###### Package model
-![Diagramma delle classi package model]()
-
-###### Package service
-![Diagramma delle classi package service]()
-
-###### Package utils
-![Diagramma delle classi package utils stats filter]()
-
-###### Package controller
-![Diagramma delle classi package controller]()
-
-###### Package exception
-![Diagramma delle classi package exception]()
-
-
-#### Diagramma delle sequenze
-###### /StatsEvents
-![Diagramma delle sequenze Promoter]()
-
-###### /FilterByCountry/{paese}
-![Diagramma delle sequenze statsReg]()
-
-###### /FilterByGenre/{genere}
-![Diagramma delle sequenze statsPromoter]()
-
-###### /FilterByGenreAndCountry
-![Diagramma delle sequenze statsPromoter]()
 
 ## Rotte
 L'utente può effettuare le richieste tramite Postman al seguente indirizzo
@@ -66,7 +29,7 @@ N° | Tipo | Rotta | Descrizione
 Questa rotta restituisce statistiche per numero totale di eventi scaricati, numero di eventi raggruppati per genere e numero minimo/massimo/medio di eventi mensili.
 
 #### Esempio risultato chiamata su postman
-![Rotta StatsEvents (1)]( )
+![Rotta StatsEvents (1)](https://github.com/viorel-saran/OOP_15-09-22/blob/main/TicketMasterEventsApp/READMEImages/stats.PNG)
 
 
 ### 2. GET /FilterByCountry/{paese}
@@ -74,7 +37,7 @@ Restituisce gli eventi per il paese inserito nella rotta.
 
 #### Eccezioni che può generare la chiamata
 
--Nel caso in cui l'utente dovesse inserire un paese tale per cui non ci sono eventi, viene lanciata l'eccezione ***NoEventsFoundException*** che stampa il seguente messaggio:
+- Nel caso in cui l'utente dovesse inserire un paese tale per cui non ci sono eventi, viene lanciata l'eccezione ***NoEventsFoundException*** che stampa il seguente messaggio:
 
 ```
 Errore:
@@ -87,9 +50,28 @@ Errore:
 E' necessario inserire un paese europeo valido in lingua italiana...
 ```
 
+- Lista paesi validi per il parametro della rotta
+```
+-italia                    -repubblica ceca         -grecia            -olanda                                                      
+-germania                  -bulgaria                -ungheria          -norvegia
+-francia                   -croazia                 -islanda           -polonia
+-turchia                   -cipro                   -ucraina           -romania
+-irlanda                   -finlandia               -lussemburgo       -russia
+-svizzera                  -danimarca               -lettonia          -serbia
+-svezia                    -estonia                 -lituania          -slovacchia
+-austria                   -isole faroe             -malta             -slovenia	
+-andorra                   -gibilterra              -monaco            -spagna
+-belgio                    -regno unito             -montenegro        -portogallo
+-paesi bassi
+ ```   	
+    	
+    	
+    	
+    	
+    	
 
-#### Risultato chiamata su Postman
-![response rotta FilterByCountry/{paese}]()
+#### Esempio risultato chiamata su Postman
+![response rotta FilterByCountry/{paese}](https://github.com/viorel-saran/OOP_15-09-22/blob/main/TicketMasterEventsApp/READMEImages/getEbyC.PNG)
 
 
 ### 3. GET /FilterByGenre/{genere}
@@ -97,7 +79,7 @@ Restituisce gli eventi per il genere inserito nella rotta.
 
 #### Eccezioni che può generare la chiamata
 
--Nel caso in cui l'utente dovesse inserire un genere tale per cui non ci sono eventi, viene lanciata l'eccezione ***NoEventsFoundException*** che stampa il seguente messaggio:
+- Nel caso in cui l'utente dovesse inserire un genere tale per cui non ci sono eventi, viene lanciata l'eccezione ***NoEventsFoundException*** che stampa il seguente messaggio:
 ```
 Errore:
 Nessuno evento trovato per parametro di ricerca...
@@ -117,8 +99,8 @@ arte e teatro,
 altro
 ```                                                                       
 
-#### Risultato chiamata su postman
-![Rotta FilterByGenre/{genere}]()
+#### Esempio risultato chiamata su postman
+![Rotta FilterByGenre/{genere}](https://github.com/viorel-saran/OOP_15-09-22/blob/main/TicketMasterEventsApp/READMEImages/getEbyG.PNG)
 
 ### 4. POST /FilterByGenreAndCountry
 Questa è una chiamata di tipo **POST**, che restituisce gli eventi filtrati per genere e paese, passando come **parametri il genere e il paese** nel body.
@@ -139,12 +121,12 @@ Questa è una chiamata di tipo **POST**, che restituisce gli eventi filtrati per
 }
 ```
 
-#### Risultato chiamata su postman
-![Rotta FilterByGenreAndCountry]()
+#### Esempio risultato chiamata su postman
+![Rotta FilterByGenreAndCountry](https://github.com/viorel-saran/OOP_15-09-22/blob/main/TicketMasterEventsApp/READMEImages/postresponse.PNG)
 
 #### Eccezioni che può generare la chiamata
 
--Nel caso in cui l'utente dovesse inserire filtri tale per cui non ci sono eventi, viene lanciata l'eccezione ***NoEventsFoundException*** che stampa il seguente messaggio:
+- Nel caso in cui l'utente dovesse inserire filtri tale per cui non ci sono eventi, viene lanciata l'eccezione ***NoEventsFoundException*** che stampa il seguente messaggio:
 ```
 Errore:
 Nessuno evento trovato per parametro di ricerca...
@@ -211,17 +193,17 @@ Errore:
 
 >Nel programma vengono effettuati i seguenti test:
                              
--**Test 1**
-Verifica che l'eccezione NoGenreFoundException sia lanciata correttamente
+**Test 1**
+- Verifica che l'eccezione NoGenreFoundException sia lanciata correttamente
 
--**Test 2**
-Verifica che l'eccezione NoCountryFoundException sia lanciata correttamente
+**Test 2**
+- Verifica che l'eccezione NoCountryFoundException sia lanciata correttamente
 
--**Test 3**
-Verifica che l'eccezione NoEventsFoundException sia lanciata correttamente
+**Test 3**
+- Verifica che l'eccezione NoEventsFoundException sia lanciata correttamente
 
--**Test 4**
-Verifica se il download dei dati ed istanziamento di questi non da esito nullo
+**Test 4**
+- Verifica se il download dei dati ed istanziamento di questi non da esito nullo
 
 
 ## Autori
