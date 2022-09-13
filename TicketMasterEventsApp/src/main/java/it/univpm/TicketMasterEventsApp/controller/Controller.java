@@ -108,6 +108,7 @@ public class Controller {
 	 * @param err
 	 * @return un messaggio di errore
 	 */
+	
 	@ExceptionHandler(NoBodyException.class)
 	public ResponseEntity<Object> handleIOException(NoBodyException err){
 		return new ResponseEntity<> (err.noBodyExceptionError(),HttpStatus.BAD_REQUEST);
@@ -115,7 +116,7 @@ public class Controller {
 	}
 	
 	/**
-	 * Metodo che lancia una chiamata di tipo POST che ritorna una lista di eventi filtrati per genere e paese 
+	 * Metodo che lancia una chiamata di tipo POST che ritorna una lista di eventi filtrati per genere e paese. 
 	 * @param body
 	 *  {
      *	"filtri":[
